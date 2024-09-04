@@ -36,6 +36,10 @@ public class Servlet extends HttpServlet {
                 }
                 req.getRequestDispatcher("/WEB-INF/DisplayDetails.jsp").forward(req, resp);
                 break;
+            case "/connexion":
+//                req.getSession().setAttribute("isLogged",true);
+//                resp.sendRedirect(req.getServletContext().getContextPath() + "/servlet/liste-patients");
+                req.getRequestDispatcher("/WEB-INF/Connexion.jsp").forward(req, resp);
         }
     }
 
@@ -57,6 +61,19 @@ public class Servlet extends HttpServlet {
             case "/recherche":
                 String recherche = req.getParameter("recherche");
                 resp.sendRedirect(req.getServletContext().getContextPath() + "/servlet/liste-patients?recherche=" + recherche);
+                break;
+            case "/supprimer":
+                int id = Integer.parseInt(req.getParameter("patient"));
+                session = Util.getSession();
+                session.beginTransaction();
+                session.createQuery("DELETE FROM Patient WHERE id = :id").setParameter("id", id).executeUpdate();
+                session.getTransaction().commit();
+                Util.closeSession(session);
+                resp.sendRedirect(req.getServletContext().getContextPath() + "/servlet/liste-patients");
+                break;
+            case "/connexion":
+                req.getSession().setAttribute("isLogged",true);
+                resp.sendRedirect(req.getServletContext().getContextPath() + "/servlet/liste-patients");
                 break;
         }
     }

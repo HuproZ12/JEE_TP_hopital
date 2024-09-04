@@ -13,10 +13,23 @@ table {
 
 th, td {
     border: 1px solid white;
+    text-align: center;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+}
+
+.borderless-sized {
+    width: 1em;
+    border: 0px;
 }
 
 .borderless {
-    width: 1em;
     border: 0px;
 }
 
@@ -25,10 +38,6 @@ th, td {
     color: red;
     font-size: 30px;
     font-weight: bolder;
-}
-
-img:hover{
-    cursor: pointer;
 }
 
 a:link {

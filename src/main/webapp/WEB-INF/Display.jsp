@@ -2,7 +2,7 @@
 <%@ page import="Temp.Patient" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%
+<%Boolean isLogged = (request.getSession().getAttribute("isLogged") != null) ? true : false;
 List<Patient> patients = (List<Patient>) request.getAttribute("patients");
 String recherche = (request.getAttribute("recherche") != null) ? (String) request.getAttribute("recherche") : "";
 
@@ -10,14 +10,12 @@ List<Patient> filteredPatients = new ArrayList();
 if (!recherche.isEmpty()) {
     for (Patient patient : patients) {
         if (patient.getNom().toLowerCase().equals(recherche.toLowerCase())) {
-//        if (patient.toString().toLowerCase().contains(recherche.toLowerCase())) {
             filteredPatients.add(patient);
         }
     }
 }else {
     filteredPatients = patients;
-}
-%>
+}%>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,16 +28,28 @@ if (!recherche.isEmpty()) {
 
 <h1>Liste des patients</h1>
 
-<img src="images/redcross.png" alt="test">
-
 <form action="${pageContext.request.contextPath}/servlet/recherche" method="post">
-    <ul>
-        <li><label for="recherche">Rechercher un patient : </label><input type="text" id="recherche" name="recherche" value=<%= recherche%>></li>
-        <li><button type="submit">Valider</button></li>
-    </ul>
+    <table>
+        <tr><td class="borderless"><label for="recherche">Rechercher un patient : </label></td><td class="borderless"><input type="text" id="recherche" name="recherche" value=<%= recherche%>></td></tr>
+        <tr><td class="borderless" colspan="2"><button type="submit">Valider</button></td></tr>
+    </table>
 </form>
 
-<c:import url="/WEB-INF/DisplayForm.jsp" />
+<c:choose>
+    <c:when test="${isLogged}">
+        <c:import url="/WEB-INF/DisplayForm.jsp" />
+    </c:when>
+    <c:otherwise>
+        <div>
+            <form action="${pageContext.request.contextPath}/servlet/connexion" method="get">
+                <table>
+                    <tr><th class="borderless">Ajouter un patient</th></tr>
+                    <tr><td class="borderless"><button type="submit">Se connecter</button></td></tr>
+                </table>
+            </form>
+        </div>
+    </c:otherwise>
+</c:choose>
 
 <div>
 <%if (filteredPatients == null || filteredPatients.isEmpty()) {
@@ -50,12 +60,12 @@ if (!recherche.isEmpty()) {
     <%}
 }else{%>
     <table>
-        <tr><th class="borderless"/><th>Nom</th><th>Prenom</th><th>Details</th></tr>
+        <tr><th class="borderless-sized"/><th>Nom</th><th>Prenom</th><th>Details</th></tr>
         <%for(Patient patient : filteredPatients){%>
             <tr>
-                <td class="borderless">
+                <td class="borderless-sized">
                     <form action="${pageContext.request.contextPath}/servlet/supprimer?patient=<%=patient.getId()%>" method="post">
-                        <input type="image" src="images/redcross.png" width="100%" height="100%">
+                        <input type="image" src="${pageContext.request.contextPath}/images/redcross.png" width="100%">
                     </form>
                 </td>
                 <td><%=patient.getNom()%></td><td><%=patient.getPrenom()%></td><td><a href="${pageContext.request.contextPath}/servlet/details?patient=<%=patient.toString()%>">ici</a></td>
