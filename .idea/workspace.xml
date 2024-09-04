@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec3ed1ea-c026-4add-b544-0391f529d531" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Temp/Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Temp/Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/Display.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/DisplayForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/DisplayForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="ec3ed1ea-c026-4add-b544-0391f529d531" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +136,7 @@
       <workItem from="1725367241361" duration="58000" />
       <workItem from="1725367410563" duration="153000" />
       <workItem from="1725367610441" duration="2474000" />
-      <workItem from="1725370108192" duration="36076000" />
+      <workItem from="1725370108192" duration="36551000" />
     </task>
     <servers />
   </component>

@@ -37,8 +37,6 @@ public class Servlet extends HttpServlet {
                 req.getRequestDispatcher("/WEB-INF/DisplayDetails.jsp").forward(req, resp);
                 break;
             case "/connexion":
-//                req.getSession().setAttribute("isLogged",true);
-//                resp.sendRedirect(req.getServletContext().getContextPath() + "/servlet/liste-patients");
                 req.getRequestDispatcher("/WEB-INF/Connexion.jsp").forward(req, resp);
         }
     }
