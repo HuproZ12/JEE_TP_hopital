@@ -1,0 +1,40 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid white;
+}
+
+.borderless {
+    width: 1em;
+    border: 0px;
+}
+
+.button {
+    background-color: darkgray;
+    color: red;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: red;
+}
